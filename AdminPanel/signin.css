@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+*{
+    padding:0;
+    margin:0;
+}
+div{
+    display:flex;
+    flex-direction: column;
+}
+.container{
+    width:70vw;
+    flex-direction: row;
+    
+}
+.cont{
+    width:70vw;
+    margin-left:auto;
+    margin-right:auto;
+    
+}
+.firstcol{
+    width: 32vw;
+    margin-right: 3vw;
+}
+.seccol{
+    width:32vw;
+    margin-right:3vw;
+}
+div input{
+    height: 3vw;
+    border-radius: 6px;
+    padding-left: 9px;
+    border: 1px solid rgb(240, 243, 245);
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+   
+}
+div label{
+    color: rgb(107, 129, 140);
+    margin-bottom: 10px;
+    margin-top: 25px;
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.textArea{
+    color: rgb(107, 129, 140);
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid rgb(243, 245, 246);
+    border-radius: 6px;
+    line-height: 1.5;
+    height:98px;
+    padding-left:10px;
+    padding-top:8px;
+    width: 66vw;
+}
+.header{
+    font-size: 1.6vw;
+    margin-top:9vh;
+    font-family: 'Open Sans', sans-serif;
+}
+.submitbtn{
+    width: 247px;
+    margin-top: 4vh;
+    background-color: rgb(255, 201, 0);
+    border: none;
+    color: rgb(51, 62, 72);
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-align:center;
+    border-radius:8px;
+    box-shadow: 0px 7px 10px #8d8989;
+    margin-left: auto;
+    margin-right: 44px;
+    margin-bottom:100px;
+}
+.submitbtn:hover{
+    opacity:.9;
+    cursor: pointer;
+}
+.headerline{
+    border: 2px solid rgb(255,201,0);
+    border-radius: 25px;
+    margin-top: 13px;
+}
+.signinpage{
+    margin-left:auto;
+}
+.logincontainer{
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
+.logincont{
+    width:50vw;
+    margin-left:auto;
+    margin-right:auto;
+}
+.loginbtn{
+    margin-left:0;
+    margin-right:0;
+    width:176px;
+    margin-bottom:30px;
+}
+.createlink{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    color: rgb(51, 51, 51);
+    font-size:14px;
+}
+.createlink:hover{
+    color: rgb(255,201,0);
+    text-decoration: underline;
+}
+/* -------products------ */
+.bodycont{
+    width:100%;
+    display:flex;
+    flex-direction: row;
+}
+.catalog{
+    width:20%;
+    height:100%;
+    background-color: #8d8989;
+}
+.productcont{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.itemcontainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item{
+    width: 331px;
+    height: max-content;
+    margin: 15px 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 11px;
+    padding-bottom: 36px;
+}
+.item:hover{
+    border:2px solid rgb(240, 243, 245);
+}
+.item hr{
+    border: 1px solid rgb(240, 243, 245);
+    margin-top: 26px;
+}
+.itemdesc h2{
+    margin-top: 20px;
+    color:red;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+.itemdesc h3{
+    font-size: 33px;
+    text-transform: capitalize;
+    margin-top: 21px;
+}
+.editbtn{
+    height: 3vh;
+    border: none;
+    color: #84c318;
+    width: 95px;
+    margin-top: 5px;
+    margin-bottom: 1px;
+    margin-left: 3vw;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.editbtn:hover{
+    background-color: rgb(255,201,0);
+    font-style:bold;
+    color:black;
+}
+.itemdetail{
+    display:flex;
+    flex-direction: row;
+}
+.productcont h1{
+    margin-right: auto;
+    
+
+}
+.newbtn{
+    width:200px;
+}
+.headercomp{
+    width:60%;
+    display:flex;
+    flex-direction:row;
+    margin-bottom: 32px;
+    margin-top: 47px;
+}
+.btnscont{
+    margin-left: auto;
+}
+.btn {
+    font-family: "Open Sans";
+}

@@ -1,3 +1,11 @@
+<?php 
+session_start();
+// print_r($_SESSION);
+if(!isset($_SESSION["admin_id"]) || $_SESSION["admin_id"] == ""){
+    header("location: ./signin.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

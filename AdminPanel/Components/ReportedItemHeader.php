@@ -54,7 +54,14 @@
               <span class="nav-item">Setting</span>
             </a>
           </li>
-
+          <form action="./Components/logout.php" method="post">
+            <li>
+              <button type="submit" name="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-item">Logout</span>
+              </button>
+            </li>
+          </form>
           <li>
             <a href="#" class="logout">
               <i class="fas fa-sign-out-alt"></i>
