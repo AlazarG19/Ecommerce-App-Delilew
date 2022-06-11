@@ -37,18 +37,12 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav m-auto font-rubik">
-              <a
-                class="nav-link active text-white"
-                aria-current="page"
-                href="#"
-              >
-                On Sale
-              </a>
+              
               <a class="nav-link text-white" href="#">Category</a>
               <a class="nav-link text-white" href="#">
                 Product
               </a>
-              <a class="nav-link text-white" href="#">Wanna Be A Seller?</a>
+              <a class="nav-link text-white" href="SellerPage/index.php">Wanna Be A Seller?</a>
             </div>
             <form action="#" class="font-size-14 font-rale">
               <a href="Cart.php" class="py-2 rounded-pill color-primary-bg">
