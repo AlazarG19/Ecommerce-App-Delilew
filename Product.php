@@ -29,7 +29,7 @@ foreach ($product->getData() as $item) {
                             <div class="col">
                                 <form method="post">
                                     <input type="hidden" name="item_id" value="<?php echo $item['item_id']; ?>">
-                                    <input type="hidden" name="user_id" value="1">
+                                    <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"]; ?>">
                                     <?php
                                     if (in_array($item["item_id"], $cart->getCartId($product->getData("cart")))) {
                                         echo '<button type="submit" name = "remove_from_cart_submit" class="btn btn-success font-size-12 form-control" >Added To cart</button>';
@@ -63,7 +63,7 @@ foreach ($product->getData() as $item) {
                         <div class="font-rale d-flex flex-column text-dark">
                             <small>
                                 Sold by
-                                <a href="#"><?php echo $item["seller"] ?? "0" ?></a>
+                                <a href="#"><?php echo $item["seller"] ?? "unknown" ?></a>
                                 
                             </small>
                         </div>
@@ -76,11 +76,11 @@ foreach ($product->getData() as $item) {
                                 <div class="qty d-flex">
                                     <h6 class="font-baloo">Qty</h6>
                                     <div class="px-4 d-flex font-rale">
-                                        <button data-id=<?php echo $item["item_id"] ?? "0" ?> data-user_id="1" class="qty-up border bg-light">
+                                        <button data-id=<?php echo $item["item_id"] ?? "0" ?> data-user_id="<?php echo $_SESSION["user_id"]; ?>" class="qty-up border bg-light">
                                             <i class="fas fa-angle-up"></i>
                                         </button>
-                                        <input type="text" class="qty-input border px-2 w-50 bg-light" disabled value="<?php echo $cart->getCartQuantity($product->getData("cart"), $item["item_id"]) ?>" placeholder=" <?php echo $cart->getCartQuantity($product->getData("cart"), $item["item_id"]) ?>" data-id=<?php echo $item["id"] ?? "0" ?> />
-                                        <button data-id=<?php echo $item["item_id"] ?? "0" ?> data-user_id="1"  class="qty-down border bg-light">
+                                        <input type="text" class="qty-input border px-2 w-50 bg-light" disabled value="<?php echo $cart->getCartQuantity($cart->getCartItem($userid = $_SESSION["user_id"]), $item["item_id"]) ?>" placeholder=" <?php echo $cart->getCartQuantity($cart->getCartItem($userid = $_SESSION["user_id"]), $item["item_id"]) ?>" data-id=<?php echo $item["id"] ?? "0" ?> />
+                                        <button data-id=<?php echo $item["item_id"] ?? "0" ?> data-user_id="<?php echo $_SESSION["user_id"]; ?>"  class="qty-down border bg-light">
                                             <i class="fas fa-angle-down"></i>
                                         </button>
                                     </div>

@@ -86,3 +86,6 @@ h4.font-rubik{
   display: flex;
     justify-content: center;
 }
+#cart{
+  min-height: 56.8vh;
+}

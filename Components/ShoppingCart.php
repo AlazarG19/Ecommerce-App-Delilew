@@ -4,6 +4,9 @@ include("./Header.php");
 ?>
 <!-- end of header  -->
 <?php
+if (isset($_SESSION["user_id"]) == null) {
+    header("Location: ./index.php");
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     print_r($_POST);
     if (isset($_POST["delete-btn-submit"])) {
@@ -20,13 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="row">
             <div class="col-sm-9">
                 <?php
-                foreach ($product->getData("cart") as $item) {
+                foreach ($cart->getCartItem($userid = $_SESSION["user_id"]) as $item) {
                     $result = $product->getProduct($item["item_id"]);
                     $result[0]["quantity"] = $item["quantity"];
-                    $result[0]["user_id"] = 1;
+                    $result[0]["user_id"] = $_SESSION["user_id"];
                     $subTotal[] = array_map(function ($item) {
                 ?>
-                <div></div>
+                        <div></div>
                         <!-- cart item -->
                         <div class="row border-top py-3 mt-3">
                             <div class="col-sm-2">
@@ -39,9 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <!-- product qty -->
                                 <div class="qty2 d-flex pt-2">
                                     <div class="d-flex font-rale w-25">
-                                        <button class="qty-up border bg-light" data-id=<?php echo $item["item_id"] ?? 0; ?> data-user_id="1"><i class="fas fa-angle-up"></i></button>
+                                        <button class="qty-up border bg-light" data-id=<?php echo $item["item_id"] ?? 0; ?> data-user_id="<?php echo $_SESSION["user_id"] ?>"><i class="fas fa-angle-up"></i></button>
                                         <input type="text" data-id=<?php echo $item["item_id"] ?? 0; ?> class="qty2-input border px-2 w-100 bg-light" disabled value=<?php echo $item["quantity"] ?? 0; ?> placeholder=<?php echo $item["quantity"] ?? 0; ?>>
-                                        <button class="qty-down border bg-light" data-id=<?php echo $item["item_id"] ?? 0; ?> data-user_id="1"><i class="fas fa-angle-down"></i></button>
+                                        <button class="qty-down border bg-light" data-id=<?php echo $item["item_id"] ?? 0; ?> data-user_id="<?php echo $_SESSION["user_id"] ?>"><i class="fas fa-angle-down"></i></button>
                                     </div>
                                     <form method="post">
                                         <input type="hidden" name="item_id" value="<?php echo $item["item_id"] ?? 0; ?>">
@@ -54,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             <div class="col-sm-2 text-right">
                                 <div class="font-size-20 text-danger font-baloo">
-                                    $<span data-id=<?php echo $item["item_id"] ?? 0; ?> class="product_price"><?php echo $item["item_price"] * $item["quantity"] ; ?></span>
+                                    $<span data-id=<?php echo $item["item_id"] ?? 0; ?> class="product_price"><?php echo $item["item_price"] * $item["quantity"]; ?></span>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- subtotal section-->
             <div class="col-sm-3">
                 <div class="sub-total border text-center mt-2">
-                    <h6 class="font-size-12 font-rale text-success py-3"><i class="fas fa-check"></i> Your order is eligible for FREE Delivery.</h6>
                     <div class="border-top py-4">
                         <h5 class="font-baloo font-size-20">Subtotal (<?php echo isset($subTotal) ? count($subTotal) : 0  ?> item):&nbsp;
                             <span class="text-danger">$

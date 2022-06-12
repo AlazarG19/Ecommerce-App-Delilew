@@ -32,7 +32,9 @@ if (isset($_POST['loginbtn'])) {
 <?php
         if ($dbpassword === $password) {
             $_SESSION['seller_id'] = $seller_id;
-            header("location: ./Components/viewAllProducts.php");
+            if($_SESSION['seller_id'] != "" || isset($_SESSION['seller_id'])){
+                header("Location: ./index.php");
+            }
         } else {
 ?>
             <script>

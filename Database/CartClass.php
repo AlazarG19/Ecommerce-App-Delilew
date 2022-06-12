@@ -103,19 +103,23 @@ class CartClass
         return $cart_id;
     }
     // to get the quantity
-    public function getCartQuantity($cartArray = null,$item_id)
+    public function getCartQuantity($cartArray = null, $item_id)
     {
         $cart_id = array();
         if ($cartArray != null) {
             $cart_id = array();
             for ($x = 0; $x < count($cartArray); $x++) {
-                if($cartArray[$x]["item_id"] == $item_id){
-                $array = array("item_id"=>$cartArray[$x]["item_id"],"quantity"=>$cartArray[$x]["quantity"]);
-                array_push($cart_id, $array);}
+                if ($cartArray[$x]["item_id"] == $item_id) {
+                    $array = array("item_id" => $cartArray[$x]["item_id"], "quantity" => $cartArray[$x]["quantity"]);
+                    array_push($cart_id, $array);
+                }
+            }
+            if(count($cart_id) == 0){
+                return 0;
             }
             return $cart_id[0]["quantity"];
         };
-        return ;
+        return;
     }
     // increment
     public function increment($userid, $itemid)
@@ -130,5 +134,20 @@ class CartClass
         $sql = "UPDATE cart SET quantity = quantity - 1 WHERE user_id = {$userid} AND item_id = {$itemid}";
         $result = $this->db->conn->query($sql);
         return $result;
+    }
+    // get cart item
+    public function getCartItem($userid = null, $table = "cart")
+    {
+        if ($userid != null) {
+            $sql = "SELECT * FROM {$table} WHERE user_id = {$userid}";
+            $result = $this->db->conn->query($sql);
+            $resultarray = array();
+
+            // fetch products one by one 
+            while ($item = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                $resultarray[] = $item;
+            }
+            return $resultarray;
+        }
     }
 }

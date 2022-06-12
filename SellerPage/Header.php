@@ -22,7 +22,7 @@ if(isset($_POST['logout'])){
               <div class="container">
                   <div class="links">
                       <ul>
-                          <?php echo isset($_SESSION["seller_id"])? 
+                          <?php echo isset($_SESSION["seller_id"])&& $_SESSION["seller_id"] != ""? 
                           "<li><a href='./Components/viewAllProducts.php'>View And Edit Own Product</a></li>".
                            "<li><a href='#'>Edit Own Product</a></li>".
                           "<li><a href='./Components/sellerView.php'>Add New Product</a></li> ".

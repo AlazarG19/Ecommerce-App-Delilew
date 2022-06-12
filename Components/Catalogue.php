@@ -39,10 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 </div>
                                 <form method="post">
                                     <input type="hidden" name="item_id" value="<?php echo $item['item_id'] ?? "1"; ?>">
-                                    <input type="hidden" name="user_id" value="1">
+                                    <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"] ?>">
                                     <input type="hidden" name="quantity" value="1">
                                     <?php
-                                    if (in_array($item["item_id"], $cart->getCartId($product->getData("cart")))) {
+                                    if (in_array($item["item_id"], $cart->getCartId($cart->getCartItem($userid = $_SESSION["user_id"])))) {
                                         echo '<button type="submit" name = "remove_from_cart_submit" class="btn btn-success font-size-12" >Added To cart</button>';
                                     } else {
                                         echo '<button type="submit" name = "add_to_cart_submit" class="btn btn-warning font-size-12"> Add To cart </button>';
